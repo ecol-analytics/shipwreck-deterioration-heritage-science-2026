@@ -1,62 +1,132 @@
-# ENDURE shipwreck deterioration — reproducible publication package
+# ENDURE shipwreck deterioration model
 
-This directory is designed to reproduce the analyses and figures reported in the
-ENDURE shipwreck deterioration manuscript without access to the original development
-filesystem.
+Code and derived data used to reproduce the analyses and figures reported in the manuscript:
 
-## Craig: one-time preparation on Ubuntu
+**Environmental forcing and deterioration trajectories in submerged shipwreck heritage**
 
-1. Copy/unzip this repository to:
+This repository is a publication-scoped reproducibility package. It contains the custom model code, the minimal derived environmental input used by the model, an anonymised wreck calibration dataset, and notebooks that reproduce the analyses and manuscript figures. It is not the complete ENDURE/Navigator development environment.
 
-   `/media/syms/ExtremeSSD/ShipwreckENDURE_Publication`
+## Repository structure
 
-2. Open `analysis/00_prepare_publication_data.ipynb`.
-3. Run it top-to-bottom.
+```text
+src/
+    decay_model.py
+    model_config.py
+    response_functions.py
+    sensitivity_helpers.py
+    wave_physics.py
 
-It reads the original development files from:
+analysis/
+    00_prepare_publication_data.ipynb
+    01_calibration.ipynb
+    02_generate_manuscript_outputs.ipynb
+    03_sensitivity_analysis.ipynb
+    04_make_figures.ipynb
 
-- `/media/syms/ExtremeSSD/ShipwreckENDURE/ABMsubset.nc`
-- `/media/syms/ExtremeSSD/ShipwreckENDURE/wreck_agent_decay_for_gam.parquet`
+data/
+    model_inputs/
+        publication_model_inputs.nc
+    calibration/
+        wreck_calibration.csv
+    gam_age_curve.csv
 
-and writes only:
+outputs/
+    figure_data/
+    figure_maps/
+    driver_maps/
+    manuscript_figures/
+```
 
-- `data/model_inputs/publication_model_inputs.nc`
-- `data/calibration/wreck_calibration.csv`
-- `data_manifest.json`
+## Reproducibility boundary
 
-The calibration CSV contains only the four analytical variables used in the GAM.
-Wreck names, identifiers and coordinates are not released.
+The repository starts from a frozen, derived regional environmental dataset rather than the full upstream Copernicus and EMODnet download archive.
 
-## Reproducing the paper
+`data/model_inputs/publication_model_inputs.nc` contains the environmental fields required to reproduce the published model analyses over the study domain. The much larger source datasets and preprocessing archive are not duplicated here; their provenance and processing are described in the manuscript.
 
-After data preparation, the remaining notebooks use only repository-relative paths
-and should run on Linux, macOS or Windows:
+The archaeological calibration dataset has been deliberately reduced to the four variables used in the fitted GAM:
 
-1. `01_calibration.ipynb`
-2. `02_generate_manuscript_outputs.ipynb`
-3. `03_sensitivity_analysis.ipynb`
-4. `04_make_figures.ipynb`
+- `Obs`
+- `chronological_age`
+- `log_CR_physics`
+- `log_CR_bio`
 
-Notebook 01 regenerates `data/gam_age_curve.csv`.
+Wreck names, site identifiers and geographic coordinates have been removed because they derive from restricted heritage records and are not required to reproduce the reported analysis.
 
-Notebook 02 regenerates threshold maps, model-driver maps, representative trajectories
-and the compact variance dataset used in the manuscript and supplement.
+## Running the analyses
 
-Notebook 03 regenerates the final sensitivity CSV products.
+For a prepared publication repository, run the notebooks in this order:
 
-Notebook 04 regenerates the manuscript and supplementary figures from those outputs.
+```text
+01_calibration.ipynb
+02_generate_manuscript_outputs.ipynb
+03_sensitivity_analysis.ipynb
+04_make_figures.ipynb
+```
 
-## Platform notes
+### 01 — Calibration
 
-The public analysis notebooks contain no `/media/syms/...` paths. Only Notebook 00,
-which is a one-time data-extraction step for the author, knows about the original SSD.
+Fits the empirical age-condition GAM using the anonymised wreck calibration dataset and writes:
 
-A collaborator on macOS should be able to clone/copy the prepared repository and run
-Notebooks 01–04 without editing filesystem paths.
+```text
+data/gam_age_curve.csv
+```
 
-## Important caveat
+### 02 — Manuscript model outputs
 
-This package reconstructs the publication analysis from the frozen derived environmental
-input. It does not attempt to reproduce the much larger upstream Copernicus / EMODnet
-download and preprocessing archive. Those source products and preprocessing provenance
-should be documented separately in the manuscript/README.
+Runs the deterioration model over the regional environmental input and regenerates the spatial threshold maps, environmental-driver rasters, representative trajectories and associated figure data.
+
+GeoTIFF outputs are written as north-up WGS84 rasters.
+
+### 03 — Sensitivity analysis
+
+Runs the one-at-a-time parameter sensitivity analyses and writes the CSV products used by the supplementary sensitivity figures.
+
+### 04 — Figures
+
+Generates the manuscript and supplementary figures from the calibration and model outputs produced above.
+
+## One-time author data preparation
+
+`00_prepare_publication_data.ipynb` is retained to document how the public input datasets were derived from the development files. It is primarily for the authors and requires access to the original ENDURE development archive.
+
+Readers reproducing the published analysis do **not** need to run Notebook 00 because the resulting publication input files are included in the repository.
+
+## Software
+
+The deterioration model is implemented in Python. Calibration and publication graphics use R.
+
+Python dependencies are listed in `requirements.txt`.
+
+Principal R packages include:
+
+```text
+mgcv
+ggplot2
+terra
+tidyterra
+sf
+rnaturalearth
+rnaturalearthdata
+data.table
+cowplot
+```
+
+The analysis notebooks use repository-relative paths and are intended to run without modification on Linux, macOS or Windows once the required Python and R environments are available.
+
+## Data availability
+
+The repository includes the minimal derived environmental dataset and anonymised archaeological calibration data needed to reproduce the analyses reported in the manuscript.
+
+Exact archaeological site coordinates are not included because they derive from restricted heritage records and are not required for reproducibility of the reported analyses.
+
+## Code availability
+
+During peer review, the current publication code and data are available through this GitHub repository.
+
+If the manuscript is accepted, the exact publication release will be archived in Zenodo and assigned a persistent DOI.
+
+## Licence and citation
+
+Licence and formal citation metadata will be finalised before the archived publication release.
+
+A Zenodo DOI and article DOI should be added here following acceptance.
