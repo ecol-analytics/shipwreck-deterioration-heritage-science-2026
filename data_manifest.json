@@ -1,0 +1,47 @@
+{
+  "publication_model_inputs": {
+    "file": "data/model_inputs/publication_model_inputs.nc",
+    "variables": [
+      "bottomT_mean",
+      "thetao_mean",
+      "o2_mean",
+      "po4_mean",
+      "no3_mean",
+      "nppv_mean",
+      "so_mean",
+      "ph_mean",
+      "fe_mean",
+      "chl_mean",
+      "uo_mean",
+      "vo_mean",
+      "current_speed_mean",
+      "seabed_orbital_velocity_mean",
+      "deptho_mean",
+      "substrate_soft_hard",
+      "bottomT_var_total",
+      "so_var_total",
+      "so_var_interannual",
+      "chl_var_total",
+      "chl_var_interannual",
+      "VHM0_mean_mean",
+      "VHM0_mean_var_total",
+      "VHM0_p95_mean"
+    ],
+    "dimensions": {
+      "latitude": 61,
+      "longitude": 236
+    },
+    "sha256": "4483468f69c8edd62f729c42bd731f990f86aab69568999b83985c475e4d1586"
+  },
+  "wreck_calibration": {
+    "file": "data/calibration/wreck_calibration.csv",
+    "rows": 124,
+    "columns": [
+      "Obs",
+      "chronological_age",
+      "log_CR_physics",
+      "log_CR_bio"
+    ],
+    "sha256": "c02ac2b7a0c02acceba7f20087e1283cd2307bde297a10e943879e0ede7d8018"
+  }
+}

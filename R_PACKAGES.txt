@@ -1,0 +1,10 @@
+R packages used by the publication notebooks:
+mgcv
+ggplot2
+terra
+tidyterra
+sf
+rnaturalearth
+rnaturalearthdata
+data.table
+cowplot

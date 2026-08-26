@@ -1,0 +1,10 @@
+numpy
+pandas
+xarray
+rioxarray
+scipy
+dask
+netCDF4
+pyarrow
+matplotlib
+jupyter
