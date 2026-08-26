@@ -17,7 +17,6 @@ src/
     wave_physics.py
 
 analysis/
-    00_prepare_publication_data.ipynb
     01_calibration.ipynb
     02_generate_manuscript_outputs.ipynb
     03_sensitivity_analysis.ipynb
