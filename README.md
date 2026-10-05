@@ -2,9 +2,9 @@
 
 Code and derived data supporting the manuscript:
 
-**Syms, C., McGonigle, C., Quinn, R. & Gregory, D.**
+**Syms, C., McGonigle, C., Quinn, R. & Gregory, D.**\
 *Environmental forcing and deterioration trajectories in submerged
-shipwreck heritage*.
+shipwreck heritage*.\
 *Heritage Science* (under review).
 
 This repository is the publication-scoped reproducibility package for
