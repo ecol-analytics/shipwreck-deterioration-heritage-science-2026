@@ -15,7 +15,13 @@ authors:
   - family-names: "Gregory"
     given-names: "David"
     orcid: "https://orcid.org/0000-0002-0262-0559"
+
+version: "1.0.0"
+date-released: "2026-10-05"
+doi: "10.5281/zenodo.23159324"
+
 repository-code: "https://github.com/ecol-analytics/shipwreck-deterioration-heritage-science-2026"
+
 keywords:
   - "underwater cultural heritage"
   - "shipwreck deterioration"

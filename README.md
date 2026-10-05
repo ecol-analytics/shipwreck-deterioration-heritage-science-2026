@@ -148,25 +148,28 @@ Python and R environments are available.
 
 ## Data availability
 
-The repository includes the minimal derived environmental dataset and
-anonymised archaeological calibration data needed to reproduce the
-analyses reported in the manuscript.
+The repository includes the minimal derived environmental dataset and anonymised archaeological calibration data needed to reproduce the analyses reported in the manuscript.
 
-Exact archaeological site coordinates are not included because they
-derive from restricted heritage records and are not required for
-reproducibility of the reported analyses.
+Exact archaeological site coordinates are not included because they derive from restricted heritage records and are not required for reproducibility of the reported analyses.
 
-## Code availability
+Data provenance and reuse conditions are described in `DATA_LICENSE.md`.
 
-The version of the code and derived data corresponding to the manuscript
-is maintained in this repository.
+## Archived release
 
-The final publication release will be archived in Zenodo and assigned a
-persistent DOI.
+The publication reproducibility release (`v1.0.0`) is permanently archived in Zenodo:
+
+**DOI:** <https://doi.org/10.5281/zenodo.23159324>
+
+The GitHub repository may continue to be updated. The Zenodo `v1.0.0` archive provides the fixed version corresponding to the manuscript.
 
 ## Licence and citation
 
-Licence and formal citation metadata will be provided with the archived
-publication release.
+Original software code in this repository is released under the MIT License. Data included in the repository retain the provenance and reuse conditions described in `DATA_LICENSE.md`.
 
-The Zenodo DOI and article DOI will be added here when available.
+Citation metadata are provided in `CITATION.cff`. Please cite the archived Zenodo release when using the repository:
+
+**Syms, C., McGonigle, C., Quinn, R. & Gregory, D. (2026).**
+_Environmental forcing and deterioration trajectories in submerged shipwreck heritage: code and data_. Version 1.0.0. Zenodo.
+<https://doi.org/10.5281/zenodo.23159324>
+
+The article DOI will be added when available.
