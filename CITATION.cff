@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated research article and archived repository release."
+title: "Environmental forcing and deterioration trajectories in submerged shipwreck heritage: code and data"
+type: software
+authors:
+  - family-names: "Syms"
+    given-names: "Craig"
+    orcid: "https://orcid.org/0000-0002-6394-2607"
+  - family-names: "McGonigle"
+    given-names: "Chris"
+    orcid: "https://orcid.org/0000-0001-6740-2141"
+  - family-names: "Quinn"
+    given-names: "Rory"
+    orcid: "https://orcid.org/0000-0001-7946-565X"
+  - family-names: "Gregory"
+    given-names: "David"
+    orcid: "https://orcid.org/0000-0002-0262-0559"
+repository-code: "https://github.com/ecol-analytics/shipwreck-deterioration-heritage-science-2026"
+keywords:
+  - "underwater cultural heritage"
+  - "shipwreck deterioration"
+  - "marine environmental modelling"
+  - "preservation vulnerability"
+  - "reproducible research"
